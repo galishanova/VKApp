@@ -28,7 +28,7 @@ class MyCommunitiesCell: UITableViewCell {
     }
     override func layoutSubviews() {
         containerMyCommunityIcon.clipsToBounds = false
-        containerMyCommunityIcon.layer.shadowColor = UIColor.black.cgColor
+        containerMyCommunityIcon.layer.shadowColor = UIColor.vkColor.blackColor.cgColor
         containerMyCommunityIcon.layer.shadowOpacity = 0.5
         containerMyCommunityIcon.layer.shadowOffset = CGSize.zero
         containerMyCommunityIcon.layer.shadowRadius = 8

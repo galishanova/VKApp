@@ -1,10 +1,3 @@
-//
-//  AllCommunitiesController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 26.12.2020.
-//
-
 import UIKit
 
 class AllCommunitiesController: UITableViewController, UISearchBarDelegate {
@@ -47,8 +40,6 @@ class AllCommunitiesController: UITableViewController, UISearchBarDelegate {
         }
         return UITableViewCell()
     }
-
-    //search community in VK
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -79,7 +70,6 @@ class AllCommunitiesController: UITableViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
             }
         }
-        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

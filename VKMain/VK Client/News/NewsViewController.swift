@@ -260,13 +260,13 @@ extension NewsViewController {
             let navBarHeight = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0 + (navigationController?.navigationBar.frame.height ?? 0.0)
             let navBarWidth = window?.windowScene?.statusBarManager?.statusBarFrame.width ?? 0 + (navigationController?.navigationBar.frame.width ?? 0.0)
             navBarCoverView.frame = CGRect(x: 0, y: 0, width: navBarWidth, height: navBarHeight)
-            navBarCoverView.backgroundColor = UIColor.black
+            navBarCoverView.backgroundColor = UIColor.vkColor.blackColor
             navBarCoverView.alpha = 0
 
             if let keyWindow = UIApplication.shared.keyWindow {
                 keyWindow.addSubview(navBarCoverView)
                 tabBarCoverView.frame = CGRect(x: 0, y: keyWindow.frame.height - 100, width: 1000, height: 100)
-                tabBarCoverView.backgroundColor = UIColor.black
+                tabBarCoverView.backgroundColor = UIColor.vkColor.blackColor
                 tabBarCoverView.alpha = 0
                 keyWindow.addSubview(tabBarCoverView)
             }

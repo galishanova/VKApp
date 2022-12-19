@@ -62,6 +62,7 @@
 		2CFE90E325EA2F4B00167CD4 /* MyCommunitiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CFE90E125EA2F4B00167CD4 /* MyCommunitiesCell.xib */; };
 		2CFF20B325EC13E500F4ED26 /* MyFriendsCell .swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFF20B125EC13E500F4ED26 /* MyFriendsCell .swift */; };
 		2CFF20B425EC13E500F4ED26 /* MyFriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CFF20B225EC13E500F4ED26 /* MyFriendsCell.xib */; };
+		686C35F22950D06000116891 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 686C35F12950D06000116891 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		2CFF20B125EC13E500F4ED26 /* MyFriendsCell .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyFriendsCell .swift"; sourceTree = "<group>"; };
 		2CFF20B225EC13E500F4ED26 /* MyFriendsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyFriendsCell.xib; sourceTree = "<group>"; };
 		54B027F4C9B1E4718DD25EDA /* Pods_VK_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		686C35F12950D06000116891 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,6 +320,7 @@
 		2CB9CC1F258DF71B0001C773 /* VK Client */ = {
 			isa = PBXGroup;
 			children = (
+				686C35F02950D02900116891 /* Extensions */,
 				2C00A8A425C854FF0014C9D5 /* Animation */,
 				2C2D91FA2597972C0055EBAD /* Demo data */,
 				2C61669725D999BA000B0E1D /* Service */,
@@ -389,6 +392,14 @@
 				54B027F4C9B1E4718DD25EDA /* Pods_VK_Client.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		686C35F02950D02900116891 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				686C35F12950D06000116891 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		BCBDFC18411052B3172B0DC6 /* Pods */ = {
@@ -527,6 +538,7 @@
 				2CA577512645C272006B4EE7 /* PhotoAsyncCellNode.swift in Sources */,
 				2CE9E95C25DADCD50028184C /* User.swift in Sources */,
 				2C0B98A325D58584001FA414 /* VKLoginViewController.swift in Sources */,
+				686C35F22950D06000116891 /* Extensions.swift in Sources */,
 				2CF8A30D26453D1200FE82FD /* AlbumsAsyncCellNode.swift in Sources */,
 				2C2D91EF259742150055EBAD /* MyCommunitiesController.swift in Sources */,
 				2C65857E260CE69600538799 /* News.swift in Sources */,

@@ -14,7 +14,7 @@ import UIKit
     @IBInspectable var image: UIImage? { didSet {  layoutImage() } }
     @IBInspectable var imageContentMode: UIView.ContentMode = .scaleAspectFit { didSet { layoutImage() } }
     
-    @IBInspectable var imageShadowColor: UIColor = .black { didSet { dropShadow() } }
+    @IBInspectable var imageShadowColor = UIColor.vkColor.blackColor { didSet { dropShadow() } }
     @IBInspectable var imageShadowOpacity: Float = 0.0 { didSet { dropShadow() } }
     @IBInspectable var imageShadowRadius: CGFloat = 0.0 { didSet { dropShadow() } }
     @IBInspectable var imageShadowOffset: CGSize = .zero { didSet { dropShadow() } }

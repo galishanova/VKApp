@@ -37,7 +37,7 @@ class MyFriendsCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         containerFriendPhoto.clipsToBounds = false
-        containerFriendPhoto.layer.shadowColor = UIColor.black.cgColor
+        containerFriendPhoto.layer.shadowColor = UIColor.vkColor.blackColor.cgColor
         containerFriendPhoto.layer.shadowOpacity = 0.5
         containerFriendPhoto.layer.shadowOffset = CGSize.zero
         containerFriendPhoto.layer.shadowRadius = 8
@@ -49,7 +49,7 @@ class MyFriendsCell: UITableViewCell {
 
         containerFriendPhoto.addSubview(friendPhotoProfile)
         containerFriendPhoto.addSubview(onlineStatus)
-        onlineStatus.layer.shadowColor = UIColor.gray.cgColor
+        onlineStatus.layer.shadowColor = UIColor.vkColor.grayColor.cgColor
         onlineStatus.layer.shadowOpacity = 0.5
         onlineStatus.layer.shadowOffset = CGSize.zero
         onlineStatus.layer.shadowRadius = 10
