@@ -1,10 +1,3 @@
-//
-//  MyCommunitiesController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 26.12.2020.
-//
-
 import UIKit
 import RealmSwift
 
@@ -101,29 +94,6 @@ class MyCommunitiesController: UIViewController, UISearchBarDelegate, UITableVie
         }
         return UITableViewCell()
     }
-    
-    
-    //удаление сообщества из избранного
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//            if editingStyle == .delete {
-//                communities?.remove(at: indexPath.row)
-//                tableView.deleteRows(at: [indexPath], with: .fade)
-//            }
-//    }
-     //добавление сообщества
-//    @IBAction func addCommunity(segue: UIStoryboardSegue) {
-//        if segue.identifier == "addCommunity" {
-//            guard let allCommunitiesController = segue.source as? AllCommunitiesController,
-//                  let indexPath = allCommunitiesController.tableView.indexPathForSelectedRow else { return }
-//            let community = allCommunitiesController.allCommunities[indexPath.row]
-//            if !communities.contains(community) {
-//                communities.append(community)
-//                tableV.reloadData()
-//                }
-//        }
-//    }
-    
-    //searching in my communities
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredCommunities = []

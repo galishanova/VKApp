@@ -1,10 +1,3 @@
-//
-//  CustomPopAnimator.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 02.02.2021.
-//
-
 import UIKit
 
 final class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {

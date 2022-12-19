@@ -1,10 +1,3 @@
-//
-//  AlbumsAsyncCellNode.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 07.05.2021.
-//
-
 import UIKit
 import AsyncDisplayKit
 

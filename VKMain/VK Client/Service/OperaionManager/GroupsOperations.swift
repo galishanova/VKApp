@@ -1,12 +1,3 @@
-//
-//  GroupsOperations.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 08.04.2021.
-//
-
-// MARK: - Get groups data with Operations
-
 import UIKit
 import Alamofire
 import SwiftyJSON
@@ -45,7 +36,6 @@ class ReceiveGroupsData: AsyncOperation {
             "v": "5.92"
         ]
         AF.request(url, parameters: parameters).responseData { [weak self] (response) in
-//            print(response)
             guard let data = response.data else {
                 return
             }
@@ -71,8 +61,6 @@ class ParseGroupsData: Operation {
                 print(error)
             }
         }
-        
-        
     }
 }
 class SaveGroupsToRealm: Operation {
@@ -82,8 +70,5 @@ class SaveGroupsToRealm: Operation {
             RealmFunc().saveGroupData(groups)
         }
     }
-    
-    
-    
 }
 

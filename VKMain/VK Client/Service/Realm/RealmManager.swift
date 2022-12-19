@@ -1,10 +1,3 @@
-//
-//  RealmManager.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 08.03.2021.
-//
-
 import Foundation
 import RealmSwift
 

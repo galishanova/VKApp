@@ -1,10 +1,3 @@
-//
-//  fadingCircleView.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 25.01.2021.
-//
-
 import UIKit
 
 class FadingCircleView: UIView {

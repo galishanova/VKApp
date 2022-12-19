@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 19.12.2020.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

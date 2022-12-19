@@ -1,10 +1,3 @@
-//
-//  AsyncOperation.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 08.04.2021.
-//
-
 import UIKit
 
 class AsyncOperation: Operation {

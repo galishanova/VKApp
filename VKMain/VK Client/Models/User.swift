@@ -1,15 +1,6 @@
-//
-//  User.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 15.02.2021.
-//
-
 import UIKit
 import SwiftyJSON
 import RealmSwift
-
-
 
 class User: Object {
 
@@ -24,9 +15,6 @@ class User: Object {
     @objc dynamic var city: String = ""
     @objc dynamic var name: String = ""
     var getName: String { return firstName + " " + lastName }
- 
-
-
 
     convenience init(from json: JSON) {
         self.init()
@@ -39,7 +27,5 @@ class User: Object {
         self.avatar = json["photo_200"].stringValue
         self.city = json["city"]["title"].stringValue
         self.name = self.getName
-
     }
-
 }

@@ -1,10 +1,3 @@
-//
-//  MyFriendsCell.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 26.12.2020.
-//
-
 import UIKit
 
 class MyFriendsCell: UITableViewCell {

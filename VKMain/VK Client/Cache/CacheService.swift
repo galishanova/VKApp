@@ -1,10 +1,3 @@
-//
-//  CacheService.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 16.04.2021.
-//
-
 import Foundation
 import Alamofire
 
@@ -15,17 +8,17 @@ class CacheService {
     
     private static let pathName: String = {
 
-        let pathName = "images" //имя папки, в которой будут сохраняться изображения
+        let pathName = "images"
 
         guard let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return pathName
             
-        } //создание кэша
+        }
 
         let url = cachesDirectory.appendingPathComponent(pathName, isDirectory: true)
 
-        if !FileManager.default.fileExists(atPath: url.path) { //проверка, существует ли папка
+        if !FileManager.default.fileExists(atPath: url.path) {
             
-            try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil) //Если папка не существует, она будет создана.
+            try? FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
             
         }
         return pathName
@@ -33,7 +26,7 @@ class CacheService {
     }()
     
 
-    private func getFilePath(url: String) -> String? { //возвращает путь к файлу для сохранения или загрузк
+    private func getFilePath(url: String) -> String? {
         
         guard let cachesDirectory = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first else { return nil }
 
@@ -43,8 +36,7 @@ class CacheService {
     }
     
 
-    private func saveImageToCache(url: String, image: UIImage) { //сохраняет изображение в файловой системе
-        
+    private func saveImageToCache(url: String, image: UIImage) {
         guard let fileName = getFilePath(url: url),
               
         let data = image.pngData() else { return }
@@ -58,7 +50,7 @@ class CacheService {
         
             let fileName = getFilePath(url: url),
                 
-            let info = try? FileManager.default.attributesOfItem(atPath: fileName), //вернёт всю техническую информацию о файле, если он существует
+            let info = try? FileManager.default.attributesOfItem(atPath: fileName),
                 
             let modificationDate = info[FileAttributeKey.modificationDate] as? Date
             
@@ -67,7 +59,7 @@ class CacheService {
         let lifeTime = Date().timeIntervalSince(modificationDate)
         
         guard
-            lifeTime <= cacheLifeTime, //проверка если файл устарел, то не загружаем заново его из сети
+            lifeTime <= cacheLifeTime,
                 let image = UIImage(contentsOfFile: fileName) else { return nil }
         
         DispatchQueue.main.async {
@@ -78,9 +70,9 @@ class CacheService {
         
     }
         
-    private var images = [String: UIImage]() //словарь в котором будут храниться загруженные и извлеченные из файловой системы изображения
+    private var images = [String: UIImage]()
  
-    private func loadPhoto(atIndexpath indexPath: IndexPath, byUrl url: String) { //загружает изображение, сохраняет его на диске и в словаре images
+    private func loadPhoto(atIndexpath indexPath: IndexPath, byUrl url: String) {
         
         AF.request(url).responseData(queue: DispatchQueue.global()) { [weak self] response in
             guard
@@ -98,24 +90,17 @@ class CacheService {
                 
             }
         }
-        
     }
 
-    func photo(atIndexpath indexPath: IndexPath, byUrl url: String) -> UIImage? { //предоставляет изображение по URL
+    func photo(atIndexpath indexPath: IndexPath, byUrl url: String) -> UIImage? {
     
         var image: UIImage?
-    
-        if let photo = images[url] { //ищем изображение в кеше оперативной памяти
-            
+        if let photo = images[url] {
             image = photo
-            
-        } else if let photo = getImageFromCache(url: url) { //ищем в файловой системе
-   
+        } else if let photo = getImageFromCache(url: url) {
             image = photo
-            
         } else {
-    
-            loadPhoto(atIndexpath: indexPath, byUrl: url) //загружаем из сети если нет в кеше и файловой системе
+            loadPhoto(atIndexpath: indexPath, byUrl: url)
         }
         return image
     }
@@ -133,34 +118,26 @@ class CacheService {
     }
 
 
-    fileprivate protocol DataReloadable {
-        
-        func reloadRow(atIndexpath indexPath: IndexPath)
-    }
+fileprivate protocol DataReloadable {
+    func reloadRow(atIndexpath indexPath: IndexPath)
+}
 
 
 extension CacheService {
-
     private class Table: DataReloadable {
-        
         let table: UITableView
 
         init(table: UITableView) {
             self.table = table
-
         }
         
         func reloadRow(atIndexpath indexPath: IndexPath) {
-            
             table.reloadRows(at: [indexPath], with: .none)
-            
         }
-        
     }
 
 
     private class Collection: DataReloadable {
-        
         let collection: UICollectionView
 
         init(collection: UICollectionView) {

@@ -1,16 +1,8 @@
-//
-//  ShadowImageSettings.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 04.01.2021.
-//
-
 import UIKit
-
 
 @IBDesignable class ShadowImageSettings: UIView {
     
-    @IBInspectable var borderColor: UIColor = .black { didSet { self.layer.borderColor = self.borderColor.cgColor } }
+    @IBInspectable var borderColor = UIColor.vkColor.blackColor { didSet { self.layer.borderColor = self.borderColor.cgColor } }
     @IBInspectable var borderWidth: CGFloat = 0.00 { didSet { self.layer.borderWidth = self.borderWidth } }
     @IBInspectable var cornerRadius: CGFloat = 0.00 {
         didSet {

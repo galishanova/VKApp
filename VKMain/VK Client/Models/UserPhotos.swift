@@ -1,10 +1,3 @@
-//
-//  UserPhotos.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 20.02.2021.
-//
-
 import UIKit
 import SwiftyJSON
 import RealmSwift

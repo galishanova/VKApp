@@ -1,10 +1,3 @@
-//
-//  NewsUser.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 03.04.2021.
-//
-
 import Foundation
 import SwiftyJSON
 import RealmSwift

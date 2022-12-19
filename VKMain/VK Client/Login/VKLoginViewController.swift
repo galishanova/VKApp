@@ -1,10 +1,3 @@
-//
-//  VKLoginViewController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 11.02.2021.
-//
-
 import UIKit
 import WebKit
 
@@ -15,9 +8,6 @@ class VKLoginViewController: UIViewController {
             webView.navigationDelegate = self
         }
     }
-    
-//    var tempArrNews: [News]? = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +27,6 @@ class VKLoginViewController: UIViewController {
         ]
     
         guard let url = components.url else { return }
-//        let request = URLRequest(url: components.url!)
         let request = URLRequest(url: url)
         webView.load(request)
 
@@ -48,12 +37,7 @@ class VKLoginViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
-
     }
-
-//    @IBAction func dismissButton(_ sender: UIButton) {
-//        navigationController?.popViewController(animated: true)
-//    }
 }
 extension VKLoginViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
@@ -85,15 +69,10 @@ extension VKLoginViewController: WKNavigationDelegate {
             return
         }
         
-
         Session.network.token = token
         Session.network.userID = Int(userIdString) ?? 0
 
         performSegue(withIdentifier: "toMainTabBar", sender: self)
-        
-        
-        
-    
         decisionHandler(.cancel)
         
     }

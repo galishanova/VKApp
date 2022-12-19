@@ -1,10 +1,3 @@
-//
-//  PostsTableViewCell.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 17.01.2021.
-//
-
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
@@ -55,9 +48,6 @@ class PostTableViewCell: UITableViewCell {
         postImageView.contentMode = .scaleAspectFill
         postImageView.layer.masksToBounds = true
         addSubview(postImageView)
-//        postImageView.clipsToBounds = true
-
-
     }
     
     override func awakeFromNib() {
@@ -123,26 +113,16 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @IBAction func btnLikeClick(_ sender: UIButton) {
-        //like count
         if likeButtonPost.tag == 0 {
             likeButtonPost.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             likeButtonPost.tintColor = .red
             likeButtonPost.tag = 1
-            
-//            likes.append(tag)
-//            self.likesLabel.text = "\(likes.count)"
-            
         }
         else {
             likeButtonPost.setImage(UIImage(systemName: "heart"), for: .normal)
             likeButtonPost.tintColor = .lightGray
             likeButtonPost.tag = 0
-            
-//            likes.removeLast()
-//            self.likesLabel.text = "\(likes.count)"
-            
         }
-        //like lbl & btn animation
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.likeButtonPost.transform = .init(scaleX: 1.25, y: 1.25)
         }) { (finished: Bool) -> Void in

@@ -1,21 +1,10 @@
-//
-//  LoginFormViewController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 19.12.2020.
-//
-
 import UIKit
 
 class LoginFormViewController: UIViewController {
-    
-    
     let fadingCircleView = FadingCircleView()
     @IBOutlet weak var loginTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,32 +60,4 @@ class LoginFormViewController: UIViewController {
     @IBAction func buttonPressed(_ sender: UIButton) {
         fadingCircleView.animate()
     }
-    
-//    @IBAction func showNavigationDidTap(_ sender: UIButton){
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = storyBoard.instantiateViewController(withIdentifier: "NewsNC")
-//
-//        navigationController?.pushViewController(viewController, animated: true)
-//    }
-//    @IBAction func showModalDidTap(_ sender: UIButton){
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let viewController = storyBoard.instantiateViewController(withIdentifier: "NewsNC")
-//
-//        viewController.modalPresentationStyle = .fullScreen
-//        viewController.transitioningDelegate = self
-//
-//        present(viewController, animated: true, completion: nil)
-//    }
-//
 }
-//
-//extension LoginFormViewController:
-//    UIViewControllerTransitioningDelegate {
-//    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        return Animator(isDismissing: false)
-//    }
-//
-//    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        Animator(isDismissing: true)
-//    }
-//}

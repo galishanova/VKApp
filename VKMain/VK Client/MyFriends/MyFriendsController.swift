@@ -1,10 +1,3 @@
-//
-//  MyFriendsController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 26.12.2020.
-//
-
 import UIKit
 import RealmSwift
 import PromiseKit
@@ -27,7 +20,6 @@ class MyFriendsController: UIViewController, UISearchBarDelegate, UITableViewDel
 // MARK: - searching
     var searching = false
     var filteredFriend: [User]!
-//    var filteredFriendsSectionTitles = [String]()
     
 // MARK: - realm
     var token: NotificationToken?
@@ -190,8 +182,6 @@ extension MyFriendsController {
                 self?.tableV.reloadData()
                 
                 self?.tableV.beginUpdates()
-//                self?.tableV.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .none)
-//                self?.tableV.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .none)
                 self?.tableV.reloadRows(at: modifications.map{ IndexPath(row: $0, section: 0) }, with: .none)
 
                 self?.tableV.endUpdates()

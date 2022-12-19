@@ -1,10 +1,3 @@
-//
-//  FullPhotoCollectionViewController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 23.04.2021.
-//
-
 import UIKit
 
 class FullPhotoViewController: UIViewController {
@@ -53,25 +46,17 @@ class FullPhotoViewController: UIViewController {
     }
     
     @IBAction func btnLikeClick(_ sender: UIButton) {
-        //like count
         if likePhotoButton.tag == 0 {
             likePhotoButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
             likePhotoButton.tintColor = .red
             likePhotoButton.tag = 1
             
-//            likes.append(tag)
-//            self.likesLabel.text = "\(likes.count)"
-//            like()
             setDataInContainer()
         }
         else {
             likePhotoButton.setImage(UIImage(systemName: "heart"), for: .normal)
             likePhotoButton.tintColor = .lightGray
             likePhotoButton.tag = 0
-            
-//            likes.removeLast()
-//            self.likesLabel.text = "\(likes.count)"
-            
         }
     }
     

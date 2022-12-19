@@ -1,10 +1,3 @@
-//
-//  NewsForm.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 28.03.2021.
-//
-
 import Foundation
 struct VKPost {
     

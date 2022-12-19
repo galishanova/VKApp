@@ -1,18 +1,9 @@
-//
-//  NetworkManager.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 11.02.2021.
-//
-
 import Foundation
 import Alamofire
 import SwiftyJSON
 import RealmSwift
 
 final class NetworkManager {
-    
-    //search groups
     func searchGroupsWithSwiftyJSON(token: String, searchText: String, completion: ((Result<[Group], Error>) -> Void)? = nil) {
         let baseURL = "https://api.vk.com"
         let path = "/method/groups.search"
@@ -41,7 +32,6 @@ final class NetworkManager {
         
     }
     
-//    //фотографии
     func getPhotosWithSwiftyJSON(token: String, albumId: Int, ownerId: String, completion: ((Result<[UserPhotos], Error>) -> Void)? = nil) {
         let url = "https://api.vk.com"
         let path = "/method/photos.get"

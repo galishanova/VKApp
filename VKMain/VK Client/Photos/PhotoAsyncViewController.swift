@@ -1,10 +1,3 @@
-//
-//  PhotoAsyncViewController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 07.05.2021.
-//
-
 import UIKit
 import AsyncDisplayKit
 import RealmSwift
@@ -63,7 +56,6 @@ class PhotoAsyncViewController: ASDKViewController<ASDisplayNode>, ASCollectionD
         DispatchQueue.global(qos: .background).async {
             self.getPhotos()
         }
-//        pairPhotosCollectionsAndRealm()
     }
     
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
@@ -104,8 +96,6 @@ class PhotoAsyncViewController: ASDKViewController<ASDisplayNode>, ASCollectionD
 
             case .success(let photosArray):
                     self.photos = photosArray
-//                print(photosArray)
-//                RealmFunc().savePhotoData(photosArray)
                 self.collectionNode.reloadData()
 
             case .failure(let error):
@@ -114,42 +104,4 @@ class PhotoAsyncViewController: ASDKViewController<ASDisplayNode>, ASCollectionD
             }
         }
     }
-    
-//    func pairPhotosCollectionsAndRealm() {
-//            guard let realm =  try? Realm() else { return }
-//            photos = realm.objects(UserPhotos.self)
-//            token = photos?.observe { [weak self] (changes: RealmCollectionChange) in
-//                guard self?.collectionNode != nil else { return }
-//                switch changes {
-//
-//                case .initial(let photos):
-//                    print("Initialize \(photos.count)")
-//                    self?.collectionNode.reloadData()
-//                    break
-//
-//                case .update(let photos, deletions: let deletions, insertions: let insertions, modifications: let modifications):
-//                    print("""
-//                        New count \(photos.count)
-//                        Deletions \(deletions)
-//                        Insertions \(insertions)
-//                        Modifications \(modifications)
-//                        """
-//                        )
-//                    self?.collectionNode.reloadData()
-//    //                self?.collectionV.performBatchUpdates({
-//
-//    //                    self?.collectionV.insertItems(at: insertions.map { IndexPath(item: $0, section: 0) })
-//    //                    self?.collectionV.deleteItems(at: deletions.map { IndexPath(item: $0, section: 0) })
-//    //                    self?.collectionV.reloadItems(at: modifications.map { IndexPath(item: $0, section: 0) })
-//    //
-//    //                }, completion: nil)
-//
-//                    break
-//
-//                case .error(let error):
-//                    print(error.localizedDescription)
-//                    break
-//                }
-//            }
-//        }
 }

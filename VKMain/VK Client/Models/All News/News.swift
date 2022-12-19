@@ -1,10 +1,3 @@
-//
-//  News.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 25.03.2021.
-//
-
 import UIKit
 import SwiftyJSON
 import RealmSwift
@@ -25,7 +18,6 @@ final class News: Object {
     @objc dynamic var repostsCount: Int = 0
     @objc dynamic var viewsCount: Int = 0
     @objc dynamic var photo_Id: Int = 0
-//    @objc dynamic var postPhoto: String = ""
     @objc dynamic var access_key: Int = 0
     var sizes = List<SizeNews>()
     var isPhotoEmpty: Bool { return Size().url == "" }
@@ -51,12 +43,6 @@ final class News: Object {
         self.sizes.append(objectsIn: sizesArr)
 
     }
-    
-
-    
-//    var url: String {
-//        return postPhoto
-//    }
 }
 
 class SizeNews: Object {

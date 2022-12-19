@@ -1,10 +1,3 @@
-//
-//  Session.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 07.02.2021.
-//
-
 import UIKit
 
 class Session {

@@ -1,10 +1,3 @@
-//
-//  ImageNetwork.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 23.04.2021.
-//
-
 import UIKit
 
 extension UIImageView {

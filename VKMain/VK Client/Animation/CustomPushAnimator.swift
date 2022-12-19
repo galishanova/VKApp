@@ -1,10 +1,3 @@
-//
-//  CustomPushAnimator.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 02.02.2021.
-//
-
 import UIKit
 
 final class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {

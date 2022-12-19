@@ -1,10 +1,3 @@
-//
-//  NewsViewController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 17.01.2021.
-//
-
 import UIKit
 import RealmSwift
 
@@ -39,8 +32,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     let tabBarCoverView = UIView()
 
     var postImageView: UIImageView?
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +49,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         addRefreshControl()
         self.getNews()
-        
-        
     }
     
     private func addRefreshControl() {
@@ -84,10 +73,8 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
                 self.news = news
 
                 self.table.refreshControl?.endRefreshing()
-
             }
         }
-        
     }
     
     private var dateFormatter: DateFormatter {
@@ -104,10 +91,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
 
 extension NewsViewController {
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return news.count
     }
@@ -118,10 +101,8 @@ extension NewsViewController {
             let newsF = news[indexPath.row]
 
             guard let realm = try? Realm() else { return UITableViewCell() }
-            
-//            if newsF.markedAsAds == 0 { //без рекламы
-                
-                if newsF.source_Id > 0, // новость друга
+                            
+                if newsF.source_Id > 0,
                    let newsU = realm.object(ofType: NewsUser.self, forPrimaryKey: newsF.source_Id) {
                     
                     cell.userNameLabel.text = "\( newsU.profiles_FirstName) \(newsU.profiles_LastName)"
@@ -148,7 +129,6 @@ extension NewsViewController {
 )
                             
                 cell.newsController = self
-//            }
         
         return cell
     }
@@ -161,9 +141,9 @@ extension NewsViewController {
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
 
-        let tableWidth = tableView.bounds.width //ширина
+        let tableWidth = tableView.bounds.width
         let news = self.news[indexPath.row]
-        let photoHeight = tableWidth * (news.sizes.last?.aspectRatio ?? 0) //высота
+        let photoHeight = tableWidth * (news.sizes.last?.aspectRatio ?? 0)
         let postElemetsHeight = CGFloat(225)
         let heightForRowAt = photoHeight + postElemetsHeight
         return heightForRowAt
@@ -175,9 +155,7 @@ extension NewsViewController {
 extension NewsViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
 
-        // Выбираем максимальный номер секции, которую нужно будет отобразить в ближайшее время
-        guard let maxRow = indexPaths.map({ $0.row }).max() else { return } // 11
-        // Проверяем,является ли эта ячейка одной из трех ближайших к концу
+        guard let maxRow = indexPaths.map({ $0.row }).max() else { return }
         if maxRow > news.count - 3 {
 
             isLoading = true
@@ -262,61 +240,19 @@ extension NewsViewController: UITableViewDataSourcePrefetching {
              }
          }
      }
-//
-//    private func pairNewsUserTableAndRealm() {
-//         guard let realm =  try? Realm() else { return }
-//        newsUser = realm.objects(NewsUser.self)
-//        token = newsUser?.observe { [weak self] changes in
-//             guard (self?.table) != nil else { return }
-//             switch changes {
-//
-//             case .initial(let newsUser):
-//                 print("Initialize \(newsUser.count)")
-//                 self?.table.reloadData()
-//                 break
-//
-//             case .update(let feedUser, deletions: let deletions, insertions: let insertions, modifications: let modifications):
-//                 print("""
-//                     New count \(feedUser.count)
-//                     Deletions \(deletions)
-//                     Insertions \(insertions)
-//                     Modifications \(modifications)
-//                     """
-//                     )
-//                 self?.table.reloadData()
-//                 self?.table.beginUpdates()
-//                     self?.table.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-//                     self?.table.insertRows(at: insertions.map { IndexPath(row: $0, section: 0) }, with: .automatic)
-//                     self?.table.reloadRows(at: modifications.map{ IndexPath(row: $0, section: 0) }, with: .automatic)
-//
-//                 self?.table.endUpdates()
-//
-//                 break
-//
-//             case .error(let error):
-//                 fatalError("\(error)")
-//             }
-//         }
-//     }
-    
-    
-    
-    
 }
  
     
 extension NewsViewController {
-    
-    //zoom photo
     func animateImageView(postImageView: UIImageView) {
         self.postImageView = postImageView
         
         if let startingFrame = postImageView.superview?.convert(postImageView.frame, to: nil) {
 
-            postImageView.alpha = 0 //выносит фото
+            postImageView.alpha = 0
                 
-            blackBackgroundView.frame = self.view.frame //черный задний фон за изображением
-            blackBackgroundView.backgroundColor = UIColor.black
+            blackBackgroundView.frame = self.view.frame
+            blackBackgroundView.backgroundColor = UIColor.vkColor.blackColor
             blackBackgroundView.alpha = 0
             view.addSubview(blackBackgroundView)
             
@@ -327,7 +263,7 @@ extension NewsViewController {
             navBarCoverView.backgroundColor = UIColor.black
             navBarCoverView.alpha = 0
 
-            if let keyWindow = UIApplication.shared.keyWindow { //спрятать tabbar & navbar
+            if let keyWindow = UIApplication.shared.keyWindow {
                 keyWindow.addSubview(navBarCoverView)
                 tabBarCoverView.frame = CGRect(x: 0, y: keyWindow.frame.height - 100, width: 1000, height: 100)
                 tabBarCoverView.backgroundColor = UIColor.black
@@ -339,23 +275,20 @@ extension NewsViewController {
             zoomImageView.isUserInteractionEnabled = true
             zoomImageView.image = postImageView.image
             zoomImageView.contentMode = .scaleAspectFill
-//            zoomImageView.clipsToBounds = true //размер = размеру фото в таблице
             view.addSubview(zoomImageView)
             
             zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomOut)))
 
             UIView.animate(withDuration: 0.3) { () -> Void in
-                //положение увеличенного изобр-я
                 let height = (self.view.frame.width / startingFrame.width) * startingFrame.height
                 let y = self.view.frame.height / 2 - height / 2
-                self.zoomImageView.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height) //размер изобр
+                self.zoomImageView.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
                 self.blackBackgroundView.alpha = 1
                 self.navBarCoverView.alpha = 1
                 self.tabBarCoverView.alpha = 1
             }
         }
     }
-    
     
     @objc func zoomOut() {
         if let startingFrame = postImageView!.superview?.convert(postImageView!.frame, to: nil) {
@@ -374,10 +307,8 @@ extension NewsViewController {
                 self.tabBarCoverView.removeFromSuperview()
                 self.postImageView?.alpha = 1
             }
-
         }
     }
-    
 }
 
 

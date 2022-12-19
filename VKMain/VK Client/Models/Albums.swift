@@ -1,10 +1,3 @@
-//
-//  Albums.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 07.05.2021.
-//
-
 import Foundation
 import SwiftyJSON
 import RealmSwift
@@ -15,7 +8,6 @@ protocol AlbumSource {
 }
 
 class Albums: Object, AlbumSource {
-
     @objc dynamic var albumId: Int = 0
     @objc dynamic var thumbId: Int = 0
     @objc dynamic var ownerId: Int = 0
@@ -42,7 +34,6 @@ class Albums: Object, AlbumSource {
 }
 
 class PhotoSizesInAlbums: Object {
-
     @objc dynamic var src: String = ""
     @objc dynamic var height: Int = 0
     @objc dynamic var width: Int = 0

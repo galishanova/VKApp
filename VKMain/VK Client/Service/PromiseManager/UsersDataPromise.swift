@@ -1,10 +1,3 @@
-//
-//  UsersDataPromise.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 11.04.2021.
-//
-
 import UIKit
 import PromiseKit
 import Alamofire

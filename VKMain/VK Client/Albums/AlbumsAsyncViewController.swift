@@ -1,10 +1,3 @@
-//
-//  AlbumsAsyncViewController.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 07.05.2021.
-//
-
 import UIKit
 import AsyncDisplayKit
 
@@ -100,9 +93,7 @@ class AlbumsAsyncViewController: ASDKViewController<ASDisplayNode>, ASCollection
             switch result {
 
             case .success(let albumsArray):
-                    self.albums = albumsArray
-//                print(albumsArray)
-//                RealmFunc().saveAlbumsData(albumsArray)
+                self.albums = albumsArray
                 self.collectionNode.reloadData()
 
             case .failure(let error):

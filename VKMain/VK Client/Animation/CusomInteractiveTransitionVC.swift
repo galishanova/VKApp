@@ -1,10 +1,3 @@
-//
-//  CusomInteractiveTransitionVC.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 03.02.2021.
-//
-
 import UIKit
 
 class CusomInteractiveTransitionVC: UIPercentDrivenInteractiveTransition {

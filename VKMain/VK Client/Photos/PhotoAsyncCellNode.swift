@@ -1,10 +1,3 @@
-//
-//  PhotoAsyncCellNode.swift
-//  VK Client
-//
-//  Created by Regina Galishanova on 07.05.2021.
-//
-
 import UIKit
 import AsyncDisplayKit
 
@@ -24,7 +17,6 @@ class PhotoAsyncCellNode: ASCellNode {
     
     private func setupSubnodes() {
         photo.url = URL(string: source.sizes.last?.url ?? "")
-//        photo.cornerRadius = 5
         photo.clipsToBounds = true
         photo.shouldRenderProgressImages = true
         photo.contentMode = .scaleAspectFill
